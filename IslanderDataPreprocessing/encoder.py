@@ -31,7 +31,6 @@ class Encoder:
             encoder = OneHotEncoder()
             finalencoder = encoder.fit_transform(self.df[i].array.reshape(-1,1)).toarray()
             finalencoder = pd.DataFrame(finalencoder, columns = encoder.categories_)
-            self.df.drop(columns =i, inplace=True)
             for j in finalencoder.columns:
                 self.df[j] = finalencoder[j]
 
