@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'module designed to make your data preprocessing experience easier'
 LONG_DESCRIPTION = 'these modules are all on my channel Islander Robotics where we belive in using python to ' \
                    'learn applications of Machine Learning and Artificial Intelligence through demonstration ' \
