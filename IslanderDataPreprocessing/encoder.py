@@ -32,5 +32,5 @@ class Encoder:
             finalencoder = encoder.fit_transform(self.df[i].array.reshape(-1,1)).toarray()
             finalencoder = pd.DataFrame(finalencoder, columns = encoder.categories_)
             for j in finalencoder.columns:
-                data[j] = finalencoder[j]
+                self.df[j] = finalencoder[j]
 
