@@ -14,23 +14,24 @@ class Encoder:
             pass
         else:
             self.Correct()
+
     def Correct(self):
-        if (self.type =="" or self.type.upper()=="ONEHOTENCODER"):
+        if (self.type == "" or self.type.upper() == "ONEHOTENCODER"):
             self.OneHotEncoder()
-        elif (self.type == "ORDINALENCODER"):
+        elif (self.type.upper() == "ORDINALENCODER"):
             self.OrdinalEncoder()
-        self.df.drop(columns=self.object_column, inplace=True)
     def OrdinalEncoder(self):
         for i in self.object_column:
             translate = OrdinalEncoder()
-            final = translate.fit_transform(self.df[i].array.reshape(-1,1))
-            self.df.drop(columns = i, inplace=True)
-            self.df[i]=final
+            final = translate.fit_transform(self.df[i].array.reshape(-1, 1))
+            self.df.drop(columns=i, inplace=True)
+            self.df[i] = final
+
     def OneHotEncoder(self):
         for i in self.object_column:
             encoder = OneHotEncoder()
-            finalencoder = encoder.fit_transform(self.df[i].array.reshape(-1,1)).toarray()
-            finalencoder = pd.DataFrame(finalencoder, columns = encoder.categories_)
+            finalencoder = encoder.fit_transform(self.df[i].array.reshape(-1, 1)).toarray()
+            finalencoder = pd.DataFrame(finalencoder, columns=encoder.categories_)
             for j in finalencoder.columns:
                 self.df[j] = finalencoder[j]
-
+            self.df.drop(columns=i, inplace=True)
