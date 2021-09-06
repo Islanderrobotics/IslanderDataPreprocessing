@@ -1,4 +1,4 @@
-from encoder2 import Encoder
+from .encoder2 import Encoder
 import pandas as pd
 from sklearn.impute import SimpleImputer
 class MissingValues:
