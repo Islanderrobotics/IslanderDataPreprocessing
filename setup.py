@@ -1,11 +1,9 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.6'
+VERSION = '1.0.7'
 DESCRIPTION = 'module designed to make your data preprocessing experience easier'
-LONG_DESCRIPTION = 'these modules are all on my channel Islander Robotics where we belive in using python to ' \
-                   'learn applications of Machine Learning and Artificial Intelligence through demonstration ' \
-                   'this module is designed to make it easier on you during the data preprocessing stage for ' \
-                   'your Machine Learning and Artificial Intelligence models'
+with open("README.md") as description:
+    LONG_DESCRIPTION = description.read()
 
 # Setting up
 setup(

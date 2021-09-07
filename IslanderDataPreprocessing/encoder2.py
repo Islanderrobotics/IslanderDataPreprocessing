@@ -14,13 +14,12 @@ class Encoder:
             pass
         else:
             self.Correct()
-
+        return self.df
     def Correct(self):
         if (self.type == "" or self.type.upper() == "ONEHOTENCODER"):
             self.OneHotEncoder()
         elif (self.type.upper() == "ORDINALENCODER"):
             self.OrdinalEncoder()
-        return self.df
     def OrdinalEncoder(self):
         for i in self.object_column:
             translate = OrdinalEncoder()

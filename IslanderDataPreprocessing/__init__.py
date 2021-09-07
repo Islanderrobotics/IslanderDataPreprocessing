@@ -1,4 +1,4 @@
-from .database import Database
+from .database import DataBase
 from .datadiscovery import DataDiscovery
 from .DataVisulization import DataVisulization
 from .datacorrelation import DataCorrelation
