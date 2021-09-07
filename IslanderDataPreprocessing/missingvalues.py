@@ -14,6 +14,7 @@ class MissingValues:
                 self.isnull.append(i)
         if (len(self.isnull) >0):
             self.Imputer()
+        return self.df
     def Imputer(self):
         imputer = SimpleImputer(strategy="median")
         new_data = imputer.fit_transform(self.df)

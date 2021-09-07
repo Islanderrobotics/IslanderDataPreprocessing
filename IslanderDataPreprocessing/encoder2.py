@@ -20,6 +20,7 @@ class Encoder:
             self.OneHotEncoder()
         elif (self.type.upper() == "ORDINALENCODER"):
             self.OrdinalEncoder()
+        return self.df
     def OrdinalEncoder(self):
         for i in self.object_column:
             translate = OrdinalEncoder()

@@ -1,7 +1,7 @@
 import os
 import zipfile
 import pandas as pd
-class Database:
+class DataBase:
     def __init__(self,API_command):
         os.system(API_command)
         self.name = API_command.split('/')
