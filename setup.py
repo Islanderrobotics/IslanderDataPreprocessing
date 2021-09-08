@@ -15,7 +15,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    install_requires=["pandas","matplotlib","PyQt5","scikit-learn"],
+    install_requires=["pandas","matplotlib","PyQt5","scikit-learn","kaggle"],
     keywords=['python', 'video', 'stream', 'video stream', 'camera stream', 'sockets'],
     classifiers=[
         "Development Status :: 1 - Planning",
