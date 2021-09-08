@@ -19,7 +19,7 @@ class Encoder:
                     else:
                         self.object_column.append(i)
 
-        if (self.object_column==[] or self.time_column ==[]):
+        if (self.object_column==[] and self.time_column ==[]):
             pass
         else:
             self.Correct()
