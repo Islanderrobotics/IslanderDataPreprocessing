@@ -25,6 +25,7 @@ class Encoder:
             self.Correct()
         return self.df
     def Correct(self):
+        self.Universal()
         if (self.type == "" or self.type.upper() == "ONEHOTENCODER"):
             self.OneHotEncoder()
         elif (self.type.upper() == "ORDINALENCODER"):
@@ -51,3 +52,12 @@ class Encoder:
             changes = pd.to_datetime(self.df[i], format="%m/%d/%y")
             self.df.drop(columns=i, inplace=True)
             self.df[i] = changes
+    def Universal(self):
+        new_list = []
+        for i in self.object_column:
+            for j in self.df[i]:
+                new_list.append(j.lower().strip())
+            # print(self.df[i])
+            self.df.drop(columns = i, inplace = True)
+            # print(new_list.u)
+            self.df[i] = new_list
