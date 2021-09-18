@@ -28,3 +28,4 @@ class FeatureScaler:
             newdf = pd.DataFrame(scalerdata, columns=self.next_one)
             for  i in newdf.columns:
                 self.df[i] = newdf[i]
+        return (self.df)

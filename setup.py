@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.0.7'
+VERSION = '1.0.09'
 DESCRIPTION = 'module designed to make your data preprocessing experience easier'
 with open("README.md") as description:
     LONG_DESCRIPTION = description.read()
@@ -9,7 +9,7 @@ with open("README.md") as description:
 setup(
     name="IslanderDataPreprocessing",
     version=VERSION,
-    author="Islander Robotics (William McKeon",
+    author="Islander Robotics (William McKeon)",
     author_email="<IslanderRobotics@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
