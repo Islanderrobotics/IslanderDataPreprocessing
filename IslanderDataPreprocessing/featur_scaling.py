@@ -9,6 +9,7 @@ class FeatureScaler:
         self.next_one = []
         self.checker = checker
     def Check(self):
+
         for i in self.df.columns:
             scalerdata = self.scaler.fit(self.df[i].array.reshape(-1, 1))
             # scalerchecker[i] = []
