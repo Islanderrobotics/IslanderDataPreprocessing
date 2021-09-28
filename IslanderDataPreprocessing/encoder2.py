@@ -7,6 +7,7 @@ class Encoder:
     def Check(self):
         self.object_column = []
         self.time_column = []
+        self.df = self.InconsitentColumnNames
         for i in self.df.columns:
             if (self.df[i].dtype == "object"):
                 if (isinstance(self.df[i][0], str)):
@@ -61,3 +62,9 @@ class Encoder:
             self.df.drop(columns = i, inplace = True)
             # print(new_list.u)
             self.df[i] = new_list
+    def InconsitentColumnNames(self):
+        for i in self.df.columns:
+            temp = self.df[i]
+            self.df.drop(columns = i, inplace = True)
+            self.df[i.strip()]= temp
+        return self.df
