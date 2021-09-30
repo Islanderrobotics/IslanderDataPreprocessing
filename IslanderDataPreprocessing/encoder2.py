@@ -7,7 +7,6 @@ class Encoder:
     def Check(self):
         self.object_column = []
         self.time_column = []
-        self.df = self.InconsitentColumnNames
         for i in self.df.columns:
             if (self.df[i].dtype == "object"):
                 if (isinstance(self.df[i][0], str)):
@@ -48,11 +47,11 @@ class Encoder:
             for j in finalencoder.columns:
                 self.df[j] = finalencoder[j]
             self.df.drop(columns=i, inplace=True)
-    def TimeCorrection(self):
-        for i in self.time_column:
-            changes = pd.to_datetime(self.df[i], format="%m/%d/%y")
-            self.df.drop(columns=i, inplace=True)
-            self.df[i] = changes
+    # def TimeCorrection(self):
+    #     for i in self.time_column:
+    #         changes = pd.to_datetime(self.df[i], format="%m/%d/%y")
+    #         self.df.drop(columns=i, inplace=True)
+    #         self.df[i] = changes
     def Universal(self):
         new_list = []
         for i in self.object_column:
@@ -62,9 +61,3 @@ class Encoder:
             self.df.drop(columns = i, inplace = True)
             # print(new_list.u)
             self.df[i] = new_list
-    def InconsitentColumnNames(self):
-        for i in self.df.columns:
-            temp = self.df[i]
-            self.df.drop(columns = i, inplace = True)
-            self.df[i.strip()]= temp
-        return self.df

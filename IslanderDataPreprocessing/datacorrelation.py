@@ -5,6 +5,20 @@ import sys
 from .DataVisulization import DataVisulization
 
 class DataCorrelation:
+    '''this module allows you to be able to view the correlation values of your dataset
+    allowing you the ability to prevent simple errors
+    DataCorrelation(df = pandas dataframe)
+    df: is where you will input the dataset you would like to evaluate
+
+    Correlationmatrix(): is the method you call uppon to view which columns have
+    correlation relationships
+
+    LookingAtCorr() is the method is where you will actually make the changes to your dataset
+    this method returns a pandas dataframe
+
+    Check(): this method will call uppon both LookingAtCorr, and Correlationmatrix for you
+    this method also will return a pandas dataframe
+    '''
     def __init__(self,df):
         self.df = df
         self.copy = self.ByeByeText(self.df)
@@ -25,7 +39,8 @@ class DataCorrelation:
         screensize = (size.width()/95-2, size.height()/96-2)
         return screensize
     def Correlationmatrix(self):
-
+        '''Correlationmatrix(): is the method you call uppon to view which columns have
+        correlation relationships'''
         for  i in self.copy.columns:
             for  j in self.copy.columns:
                 if i == j:
@@ -45,6 +60,8 @@ class DataCorrelation:
             print(f"{count}:{i},{self.high_corr[i]}")
             count += 1
     def LookingAtCorr(self):
+        '''LookingAtCorr() is the method is where you will actually make the changes to your dataset
+            this method returns a pandas dataframe '''
         print("with the values you see up above do you with to see a a scatter matrix of them")
         choice = input("enter yes if you do")
         if choice.upper() == "YES":
@@ -128,3 +145,11 @@ class DataCorrelation:
                     self.copy = copy_of_copy
                 elif(choice.upper()=="YES"):
                     self.df = self.copy
+            return self.df
+    def Check(self):
+        '''
+            Check(): this method will call uppon both LookingAtCorr, and Correlationmatrix for you
+            this method also will return a pandas dataframe'''
+        self.Correlationmatrix()
+        self.LookingAtCorr()
+        return self.df

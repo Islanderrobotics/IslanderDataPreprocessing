@@ -10,13 +10,12 @@ class NeedsToBeATuple(Exception):
     pass
 class MissingColumnNames(Exception):
     pass
-
 class DataVisulization:
-    def __init__(self, data = None,type_of_plot = "", column_values_for_x = None, column_values_for_y = None,alpha = None):
+    def __init__(self, data = None,type_of_plot = "", x = None, y = None,alpha = None):
         self.data = data
         self.alpha = alpha
-        self.x = column_values_for_x
-        self.y = column_values_for_y
+        self.x = x
+        self.y = y
         self.type_of_plot = type_of_plot
         plt.rcParams["figure.figsize"]= self.FindingScreenSize_()
         if type_of_plot.upper() == "HIST":
